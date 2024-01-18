@@ -1,28 +1,60 @@
 import React, { useState } from "react";
 import "../pagecss/Productitems.css";
 import { useFormik } from "formik";
-const Productitems = ({onClose}) => {
-  // const [video,setVideo] =useState("");
-  const [image,setImage] = useState("")
-  const handleChange = (event) =>{
-    console.log(event,"this is form eventsssssssssssss");
-    let files = event.target.files[0];
-    setImage(files)
-    console.log(files,"files coming............");
-    
-   
-  }
+// import AWS from 'aws-sdk';
+// import cloudinary from "cloudinary-core"
+import axios from '../api/Baseurl';
+// const cl=cloudinary.Cloudinary.new({cloud_name:'dhwdphigu'})
 
+const Productitems = () => {
+  // const [video,setVideo] =useState("");
+
+
+  var [thumbnail,setthumbnail] = useState("")
+  var [source,setsource] = useState(" ")
+
+
+  const handleChange = (event) =>{
+    console.log(event,"this is form eventsssssssssssss----------thumbnail");
+    let files = event.target.files[0];
+    setthumbnail(files)
+    
+    console.log(files,"files coming............");
+  }
+const handleControll = (event) =>{
+  console.log(event,"handle controllllll-------source");
+  let file = event.target.files[0];
+  setsource(file)
+}
+
+// const determineFileType = (fileName) => {
+//   console.log(fileName,"for changing type..............");
+//   // You can implement a logic to determine the file type based on the file name or content type
+//   // For simplicity, let's assume the file extension represents the type
+//   const fileExtension = fileName.split('.').pop().toLowerCase();
+  
+//   // Map common file extensions to folder names (adjust this based on your actual use case)
+//   const fileTypeMappings = {
+//     pdf: 'pdf',
+//     mp3: 'audio',
+//     wav: 'audio',
+//     mp4: 'video',
+//     // Add more mappings as needed
+//   };
+
+//   return fileTypeMappings[fileExtension] || 'other'; // Default to 'other' if not found
+// };
 
   const formik = useFormik({
     initialValues: {
       productName: "",
+      productDescription:" ",
       productCategory: "",
       ageCategory: "",
       price: "",
       free: "",
-      image: "",
-      video: "",
+      thumbnail: "",
+      source: "",
     },
 
     onSubmit:async (values)=>{
@@ -30,16 +62,71 @@ const Productitems = ({onClose}) => {
       const body = {
   
           productName : values.productName,
+          productDescription:values.productDescription,
           productCategory : values.productCategory,
           ageCategory:values.ageCategory,
           price : values.price,
           free :values.free,
+       
           
   
     }
-    console.log(body,";;;;;;;;;;");
-    console.log(image,"lllllllllllllllllllllllllllllll");
+    // console.log(thumbnail,"thumbbbbbbbbbbbbbbbbbbbbbbbbb");
+    // console.log(source,"sooooooooooooooooooooooooo");
 
+    if(thumbnail){
+    console.log(thumbnail,";;;;;;;;;;;;;;;;;;;;;;;;00088");
+      const formData = new FormData()
+      formData.append('imagess', thumbnail);
+      formData.append('upload_preset', 'images')
+      console.log(formData,"ooooooooooooooooooo");
+      await  axios.post('https://api.cloudinary.com/v1_1/dhwdphigu/image/upload', formData)
+      const data = {
+        productName:body.productName,
+        productDescription:body.productDescription,
+        productCategory:body.productCategory,
+        ageCategory:body.ageCategory,
+        free:body.free,
+        // thumbnail:thumbnail,
+        // source:source
+      }
+
+      console.log(data,";;;;;;;------------;;;;;");
+      console.log(thumbnail,source,"aaaaaaaaaaaaaaaaaaafterrrrrrrrrrrrr");
+
+    
+      const response = await axios.post('admin/addProducts',data)
+      console.log(response,"uuuuuuuuuuuuuuuuuu");
+      // const sourceFileType = determineFileType(source.name);
+      // console.log(sourceFileType,"typoooooooooooooooooo");
+      
+// now i need to store it into s3 bucket
+// const s3 = new AWS.S3();
+// const thumbnailUploadParams = {
+//   Bucket: "mentoons",
+//   Key: images/${thumbnail.name}, // Update the folder name as needed
+//   Body: thumbnail,
+// };
+
+
+// const sourceUploadParams = {
+//   Bucket: "mentoons",
+//   Key: ${sourceFileType}/${source.name}, // Dynamic folder based on file type
+//   Body: source,
+// };
+// try {
+//   const thumbnailUploadResult = await s3.upload(thumbnailUploadParams).promise();
+//   const sourceUploadResult = await s3.upload(sourceUploadParams).promise();
+//   console.log(thumbnailUploadResult,sourceUploadResult,"resiiiiiiiiiiiiiiii");
+//   // ... (unchanged)
+// } catch (error) {
+//   console.error("Error uploading files to S3", error);
+// }
+
+
+    }else{
+      console.log("please select two medias")
+    }
   }
   });
 
@@ -48,7 +135,9 @@ const Productitems = ({onClose}) => {
   return (
     <div className="main-item-adding">
       <h1> Add your Product item </h1>
-      <form onSubmit={formik.handleSubmit} className="itemsadding-form" enctype="multipart/form-data" >
+      <form onSubmit={formik.handleSubmit} 
+      className="itemsadding-form" 
+      encType="multipart/form-data" >
         <input
           type="text"
           placeholder="Enter Product Name"
@@ -110,22 +199,24 @@ const Productitems = ({onClose}) => {
 
         <br></br> */}
 
-        {/* <div className="pdf">
-          <label>Pdf </label>
+        <div className="pdf">
+          <label>source </label>
           <input type="file"
-          value="pdf"
-          id="pdf" 
-           name="pdf" 
-           onChange={handleChange} 
+          
+          id="source" 
+           name="source" 
+           
+           onChange={handleControll} 
             />
-        </div> */}
+        </div>
 
         <div className="pdf">
-          <label>pdf </label>
+          <label>thumbnail </label>
           <input type="file"
-         accept=".pdf"
+         
           id="image" 
            name="image" 
+         
            onChange={handleChange} 
             />
         </div>
@@ -144,7 +235,7 @@ const Productitems = ({onClose}) => {
           onChange={formik.handleChange}
         />
         <button type="submit"
-        onClick={onClose}
+        
         > Submit</button>
       </form>
     </div>

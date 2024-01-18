@@ -16,7 +16,7 @@ import Mentoonstore from './Pages/Mentoonstore.js';
 import Productdetails from './Pages/Productdetails.js'
 import Cart from './Pages/Cart.js'
 import Additems from './Pages/Additems.js'
-
+import Product from './Pages/Product.js'
 
 function App() {
 const [ loading , setloading] = useState (false)
@@ -40,6 +40,7 @@ useEffect(()=>{
           <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/ProductShowcase/:id' element={<Product />} />
             <Route path='/Mentoonstore' element={<Mentoonstore />} />
             <Route path='/Admintpanal' element={<Admintpanal />} />
             <Route path='/Shopping' element={<Shopping />} />
@@ -53,7 +54,7 @@ useEffect(()=>{
             <Route path='/Logbtn' element={<Logbtn />} />
             <Route path='/Cart' element={<Cart />} />
             <Route path='/Additems' element={<Additems />} />
-            <Route path='/Productdetails/:id' element={<Productdetails/>} />
+            {/* <Route path='/Productdetails/:id' element={<Productdetails/>} /> */}
             
           </Routes>
           </BrowserRouter>

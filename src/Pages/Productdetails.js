@@ -26,13 +26,12 @@ const Productdetails = () => {
 
   const {id} = useParams();
   useEffect(()=>{
-    const fetchProduct= async ({id}) =>{
+    const fetchProduct= async () =>{
 
        try {
-          const response = await axios.get(`/products/:${id}`)
-          console.log(response,"....----.......>");
-          setProduct(response.data.prod)
-          console.log(response);
+          const response = await axios.get(`/products`)
+          setProduct(response)
+
        } catch (err){
          return { status: false , message:"not found product"}
        }
@@ -45,7 +44,7 @@ const Productdetails = () => {
       <>
     
  <div className="product-main-box" >
-      <div className='detile-image'key={{id}}>
+      <div className='detile-image'>
           <img src={product.image} alt="" />
       </div>
       <div className="product-detile">

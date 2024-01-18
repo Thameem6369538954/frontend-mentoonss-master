@@ -1,38 +1,23 @@
 import React, { useState,useEffect } from 'react'
 import '../pagecss/Mentoonstore.css'
 import Productnav from '../Pages/Productnav.js'
+import ProductShowcase from '../Pages/ProductShowcase.js'
 import { MdCurrencyRupee } from "react-icons/md";
 import { useNavigate,NavLink } from 'react-router-dom';
 import axios from '../api/Baseurl.js'
 
-const Mentoonstore = (props) => {
+const Mentoonstore = () => {
 
   
-  const [items,setItems] = useState([]);
-  const [category,setCategory] = useState([])
-  const [loading,setLoading] = useState(false);
-  const [filter,setFilter] = useState()
-  let componentMounted = true;
+const [products,setProducts] = useState();
 
- 
-
-
-
-  
-  const navigate = useNavigate();
-  
   
   useEffect(()=>{
     const fetchProduct= async () =>{
       
       try {
         const response = await axios.get('/products')
-        var categories = await axios.get('/getCategory')
-        // console.log(categories,"categriesss.........");
-        console.log(response,"++++++++++");
-        setItems(response.data.prod)
-        // console.log(items);
-        setCategory(categories.data.cate)
+        setProducts(response.data.prod)
         
       } catch (err){
         return { status: false , message:"not found product"}
@@ -40,78 +25,27 @@ const Mentoonstore = (props) => {
     }
     fetchProduct()
   },[])
+  console.log(products);
+  // useEffect(()=>{
+  //   const fetchProducts = async () =>{
+  //  const response = await   fetch('https://fakestoreapi.com/products')
+  //        const data = await response.json()
+  //       //  console.log(products);
+  //        setProducts(data)
+  //   }
+  //   fetchProducts()
+  // },[])
   
-
-    var getCate = async (e,key)=>{
-      e.preventDefault()
-      const response = await axios.get(`/getCatProduct/:${key}`)
-      console.log(response,"filtering..........");
-    }
- 
-  const Loading = () =>{
-    return (
-      <>
-      <p className='loading'>Loading.....</p>
-      </>
-    )
-  }
-
-    //  const  filterProduct = (cat)=>{
-    //     const updateitems =items.filter((x)=>x.category === cat) ;
-    //     setFliter(updateitems)
-    //  }
   
   return (
     <div>
       <Productnav />
-        <div className="main-mentoons" >
-        
-        </div>
-      {/* <div className="setlading">
-        {loading ? <Loading /> : <ShowPro />}
-      </div> */}
-      
-      <div className="btns">
-  {category.map((item) => (
-    <div className="categorys-box">
-      <div className="btn-box"  key={item._id}>
-        <button onClick={(e)=>getCate(e,item._id)}>{item.CategoryName}</button>
-      </div>
-    </div>
-  ))}
-</div>
+      {products?.length > 0 ? <ProductShowcase products={products} />:<div>Loading.........</div>}
+    
 
-       
-      {/* <button onClick={()=>{}}>E-Comics</button>
-      <button onClick={()=>{}}>Audio-Comics</button>
-      <button onClick={()=>{}}>WorkShops</button>
-      <button onClick={()=>{}}>Podcast</button> */}
-    {items.length > 0 ?
-       <div className="show-product">
-       {items.map((item)=>{
-            return<div className='product-main' onClick={()=>navigate(`/Productdetails/${item._id}`)}>
-              <div className="dispay-flex">
-              <div className='product-box' key={item._id}>
-              <img src={item.image} alt="" />
-              <h2>{item.productName}</h2>
-              <p><MdCurrencyRupee />{item.price}</p>
-              {item?.count > 0 ?   <button className="addtocart-btn">
-                    Go To Cart
-                  </button>:
-                  <button to= {`/Productdetails/${item.id}`} className="addtocart-btn">
-                  view product
-                </button>
-                
-                }
-            </div>
-            </div>
-            </div>
-            
-          })}
-       </div>
-       :<h2>Loading</h2>} 
-         
-    </div>
+      </div>
+
+
   )
 }
 
