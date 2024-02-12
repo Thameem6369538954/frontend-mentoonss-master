@@ -1,0 +1,19 @@
+.share-box {
+    position: absolute;
+    z-index: 3;
+    background-color: red;
+    height: 40vh;
+    width: 70%;
+    margin-top: 10%;
+   margin-left: -70%;
+}
+.images-txt 
+{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.images-txt img {
+    width: 100px;
+}

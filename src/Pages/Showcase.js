@@ -1,41 +1,104 @@
-import React from 'react'
-import '../pagecss/Showcase.css'
+import React from "react";
+import "../pagecss/Showcase.css";
+import Fade from '../Images/Fade.jpg'
+import Wisely from '../Images/Wisely.jpg'
+import Gaming from '../Images/Gaming.jpg'
+import { NavLink } from "react-router-dom";
 const Showcase = () => {
-   
   return (
-    <div>
-            <div className="catgory-main-container" >
-                <h2  data-aos="fade-right" >Choose form a variety of our products in our showcase</h2>
-                    <div className="category-boxes">
-                        <div className="box-a">
-                <p>Stories Comic</p>
-                        </div>
-                        <div className="box-b">
-<p>Word Games</p>
-                        </div>
-                        <div className="box-c">
-              <p>Work <br></br>Books</p>
-                        </div>
-                
-                        <div className="box-d">
-                        <p>WorkShops <br></br> Stories based</p>
-                        </div>
-                        <div className="box-e">
-<p>Murder Mystery </p>
-                        </div>
-                        <div className="box-f">
-<p>Conversation 
-   Starter Cards</p>
-                        </div>
-                        <div className="box-f">
-<p>Coloring Books</p>
-                        </div>
-                    </div>
+    <div className="showcase-main">
+      <h1>Take a look at our new comics</h1>
+     <div className="hole-showcase">
+      <div className="showcase-box">
+      <div className="box">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
             </div>
+          </div>
+        </div>
+        <br></br>
+        <div className="box">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
+            </div>
+          </div>
+        </div>
+        <div className="box">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
+            </div>
+          </div>
+        </div>
+        <div className="box">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
+            </div>
+          </div>
+        </div>
+        <div className="box-4">
+          <img src="" alt="" />
+          <div className="price-details"></div>
+        </div>
+      </div>
 
+      <div className="showcase-side-line">
 
+      </div>
+
+      <div className="add">
+        <h4>OUR PRODUCT</h4>
+        <div className="add-box">
+        <div className="box-a">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
+            </div>
+          </div>
+        </div>
+        <br></br>
+        <div className="box-a">
+          <img src={Fade} alt="" />
+          <div className="price-details">
+            <h3>Don't Fade Away</h3>
+            <p>13-19</p>
+            <div className="ofr">
+              <h6>Rs:29</h6>
+              <p>Offer 30%</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+     
+
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Showcase
+export default Showcase;
+

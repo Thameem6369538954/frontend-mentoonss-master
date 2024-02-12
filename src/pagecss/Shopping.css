@@ -1,120 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.add-benner{
+.shopping-cate{
+    margin-top: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: 10%;
-
+    gap: 2rem;
 }
-.banner{
-    border:1px solid #ffda00;
-    width: 300px;
-    height: 100vh;
-    margin-top: 1%;
-    position: fixed;
-    margin-left: 80%;
-    overflow: scroll;
-
-}
-.shopping-video{
-    position: absolute;
-    width: 400px;
-    margin-left:40%;
-    border-radius: 30px;
-}
-.shoping-haeding h1{
-    position: absolute;
-    /* color: yellowgreen; */
-    font-size: 70px;
-    text-align: center;
-    margin-top: -90px;
-    margin-left: 6%;
-    font-family: 'Poppins', sans-serif;
-   
-}
-.shoping-text{
-    margin-top: 4%;
-}
-.shoping-text  h2{
-    position: absolute;
-    margin-left: 7%;
-    text-align: center;
-    font-size: 60px;
-   margin-top: 1%;
-   font-family: 'Poppins', sans-serif;
-}
-.shoping-text p{
-    font-family: 'Poppins', sans-serif;
-    position: absolute;
-text-align: center;
-font-size: 16px;
-margin-left: 8%;
-margin-bottom: 90px;
-margin-top: 13%;
-padding-top: 20px;
-}
-.newson-banner{
-    margin-top: 20px;
-    margin-left: 20px;
-    border: 2px solid #00aeef;
-    height: 200px;
-    width: 250px;
-    border-radius: 10px;
-}
-.header-text-and-video{
+.left-shopping-box-text h1{
+    font-size: 40px;
+    color: #FFB901;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 600;
+} 
+.shopping-ul{
     display: flex;
-    justify-content: space-around;
-    margin-left: 10%;
-    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  
 }
-
-
-.button {
-
-    margin-top: 250px;
-    margin-bottom: 20px;
-    width: 150px;
-    padding: 0;
+.shopping-ul li{
     border: none;
-    transform: rotate(5deg);
-    transform-origin: center;
-    font-family: "Gochi Hand", cursive;
-    text-decoration: none;
-    font-size: 15px;
-    cursor: pointer;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    box-shadow: 0 2px 0 #494a4b;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: #5cdb95;
-    margin-left: 350%;
-  }
-  
-  .button span {
-    background: #f1f5f8;
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: 2px solid #494a4b;
-  }
-  
-  .button:active {
-    transform: translateY(5px);
-    padding-bottom: 0px;
-    outline: 0;
-  }
-  .cate-nav ul {
-    position: absolute;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 11px 19px 15px -3px rgba(0,0,0,0.1);
+}
+.Shopping-video{
+    width: 300px;
+    border-radius: 10px;
+    margin-left: 20%;
+}
+.left-shopping-box-text p{
+    margin-top: 10px;
+    margin-left: 20%;
+    color: white;
+    font-size: 19px;
+}
+.right-side-sho-box{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: -6%;
-    margin-left: 20%;
-    flex: 1;
-    gap: 1rem;
+    justify-content: center;
+    background-color: #FFDA00;
+    border-radius: 10px;
+    height: 40vh;
+    width: 40%;
+}
+.ofr{
+    display: flex;
+    align-items: center;
 
-  }
-  .cate-nav ul li{
-    cursor: pointer;
-  }
+}
+.right-side-sho-box img{
+    width: 300px;
+}
+.shopping-heading-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2%;
+
+}
+
+.left-side-sho-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #00AEEF;
+    border-radius: 10px;
+    height: 40vh;
+    width: 40%;
+}
+
+@media only screen and (max-width: 768px) {
+    .shopping-cate {
+        flex-direction: column;
+    }
+
+    .left-shopping-box-text h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .Shopping-video {
+        width: 100%; /* Adjust width as needed for mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left-shopping-box-text p {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .right-side-sho-box,
+    .left-side-sho-box {
+        width: 80%; /* Adjust width as needed for mobile */
+        margin: 10px auto;
+    }
+
+    .shopping-ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .shopping-ul li {
+        flex: 0 0 45%; /* Adjust item width for mobile */
+    }
+}

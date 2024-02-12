@@ -1,0 +1,92 @@
+.main-paument h1{
+    font-size: 30px;
+    margin: 10px;
+}
+.billing-forms {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50%;
+}
+.three-input{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 1rem;
+    
+}
+.yes-no{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    width: 20%;
+}
+.three-input input {
+    background-color: #FEC393;
+    padding: 10px;
+    border-radius: 10px;
+}
+.two-forms{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 1rem;
+}
+.two-forms input {
+    background-color: #FEC393;
+    padding: 10px;
+    border-radius: 10px;
+}
+.two-forms input::placeholder {
+color: black;
+}
+.three-input  input::placeholder {
+color: black;
+}
+.buttom-line{
+    border-bottom: 2px solid #FEC393 ;
+    margin-top: 50px;
+}
+.pay-display{
+    display: flex;
+    gap: 0.2rem;
+}
+.upi-method img{
+    width: 50px;
+    margin: 10px;
+    object-fit: contain;
+}
+.upi-method {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.payment-Require{
+    margin: 20px;
+}
+.side-line {
+    width: -10%;
+    margin-top: -5%;
+    height: 190px;
+    border-left: 2px solid #FEC393 ;
+}
+.payment-main{
+    display: flex;
+    justify-content: space-between;
+}
+.reward-points{
+    margin-right: 7%;
+}
+.reward-points p{
+    display: flex;
+    gap:1rem;
+}
+.reward-points h2{
+    margin-top: -10%;
+}
+.paytm{
+    font-size: 60px;
+    color: darkblue;
+}

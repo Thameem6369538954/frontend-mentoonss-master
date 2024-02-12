@@ -44,7 +44,7 @@ const Navbar = () => {
            hashSpy={true}
            offset={50}
            duration={1200}>
-            Work Shop
+            WorkShop
            </Link> </li>
            <li onClick={closeMenu}><Link 
            to="team"
@@ -84,27 +84,13 @@ const Navbar = () => {
            duration={1200}>
            Contact </Link> </li> 
            <NavLink to='/Shopping'>
-            <li onClick={closeMenu}><Link 
-           
-           spy={true}
-           smooth={true}
-           hashSpy={true}
-           offset={50}
-           duration={1200}>
-            Mentoons Store
-           </Link> </li> 
+            <li onClick={closeMenu}>
+            Mentoons Store </li> 
        
             </NavLink>  
             <NavLink to='Signup'>
-            <li onClick={closeMenu}><Link 
-           to="join"
-           spy={true}
-           smooth={true}
-           hashSpy={true}
-           offset={50}
-           duration={1200}>
-        Signup
-           </Link> </li> 
+            <li onClick={closeMenu}>
+        Sign up</li> 
                </NavLink> 
            
           </ul>

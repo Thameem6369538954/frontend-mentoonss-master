@@ -37,7 +37,7 @@
     color: #EC9600;
 }
 .join-heading h1{
-    background-color: #D12881;
+    background-color: #34327C;
     margin-left: 30%;
     text-align: center;
     font-size:45px;
@@ -87,11 +87,11 @@
         font-size: 40px;
     }
     .join-txt p{
-        color: #D12881;
+        color: #34327C;
         font-size: 16px;
     }
     .join-heading h1{
-        background-color: #D12881;
+        background-color: #34327C;
         margin-left: 17%;
         text-align: center;
         font-size:25px;
@@ -147,7 +147,7 @@
 }
 @media (min-width:768px) and (max-width:1024px){
     .join-heading h1{
-        background-color: #D12881;
+        background-color: #34327C;
         margin-left:30%;
         text-align: center;
         font-size:25px;
@@ -183,5 +183,11 @@
         color: black;
         margin-top: 90px;
         padding: 20px;
+    }
+}
+@media (min-width:768px) and (max-width:1024px){
+    .joincointainer {
+        height: 75vh;
+        width: 100%;
     }
 }

@@ -1,0 +1,77 @@
+.main-empower-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.acc-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+}
+.acc-btns button:nth-child(1){
+    background-color: yellow;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.acc-btns button:nth-child(2){
+    background-color: #FC353D;
+    border-radius: 10px;
+    color: white;
+    padding: 15px;
+    margin-left: 170px;
+}
+.empower-box{
+    background-color: #FEC393;
+   
+    width: 60%;
+    height: 70vh;
+}
+.heading-acc{
+font-size: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.empower-side-btns {
+    display: flex;
+    flex-direction: column;
+   
+   
+}
+.startup-image img{
+    margin-top: 80px;
+    width: 400px;
+}
+.main-starup-conatiner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.startup-text ul li{
+    list-style: none;
+}
+.empower-side-btns button{
+    background-color: #F48B34;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin-top: 100px;
+    height: 80px;
+    font-size: 16px;
+    width: 160px;
+}
+.video-cofounder img{
+    width: 600px;
+}
+@media screen and (max-width:600px){
+    .empower-side-btns button{
+        background-color: var(--yellow);
+        border: none;
+        height: 80px;
+        margin-top: 40px;
+        font-size: 16px;
+        width: 160px;
+    }
+    
+}

@@ -10,7 +10,7 @@
     margin-top: 10%;
   }
   .join-heading-gallry h1{
-    background-color: #D12881;
+    background-color: #34327C;
     margin-left: 30%;
     font-size: 45px;
     color: white;
@@ -178,7 +178,7 @@
     
   }
   .join-heading-gallry h1{
-    background-color: #D12881;
+    background-color: #34327C;
     margin-left: 20%;
     font-size: 25px;
     color: white;
@@ -187,6 +187,6 @@
     width: 60%;
     text-align: center;
     border-radius: 100%;
-    padding: 30px;
+    padding: 10px;
   }
   }
